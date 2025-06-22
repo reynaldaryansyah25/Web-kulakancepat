@@ -55,6 +55,26 @@
           <h6 class="truncate text-lg font-bold">{{ $user->name_owner }}</h6>
           <p class="text-sm text-gray-500">{{ $user->name_store ?? 'Toko Retail' }}</p>
         </div>
+        <div class="mt-6 rounded-lg bg-white p-4 text-left shadow-sm">
+          <h4 class="mb-3 text-base font-bold text-gray-700">Info Kredit</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Tingkat Tier</span>
+
+              @if ($user->tier)
+                <span class="font-semibold text-red-600">{{ $user->tier->name }}</span>
+              @else
+                <span class="font-semibold text-gray-600">-</span>
+              @endif
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Plafon Kredit</span>
+              <span class="font-semibold text-gray-800">
+                Rp {{ number_format($user->credit_limit ?? 0, 0, ',', '.') }}
+              </span>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <div class="md:col-span-3">

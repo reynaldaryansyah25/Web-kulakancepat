@@ -73,4 +73,11 @@ Route::middleware('auth:customer')->group(function () {
 
     Route::get('/order/confirmation/{transaction}', [OrderDetailController::class, 'confirmation'])->name('order.confirmation');
     Route::get('/order/{transaction}', [OrderDetailController::class, 'show'])->name('order.show');
+
+    
+    Route::get('/checkout', [OrderDetailController::class, 'checkout'])->name('checkout.show');
+    Route::post('/checkout', [OrderDetailController::class, 'store'])->name('checkout.store');
+    Route::get('/order/confirmation/{transaction}', [OrderDetailController::class, 'confirmation'])->name('order.confirmation');
+    Route::get('/orders', [OrderDetailController::class, 'index'])->name('order.history');
+    Route::get('/orders/{transaction}', [OrderDetailController::class, 'show'])->name('order.show');
 });

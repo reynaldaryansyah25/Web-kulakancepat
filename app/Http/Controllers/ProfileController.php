@@ -19,12 +19,9 @@ class ProfileController extends Controller
     {
         /** @var \App\Models\Customer $customer */
         $customer = Auth::guard('customer')->user();
+        $customer->load('tier');
 
-        // Mengambil transaksi customer
         $transactions = $customer->transactions()->orderBy('date_transaction', 'desc')->paginate(5);
-        
-        // DIPERBAIKI: Mengambil SEMUA alamat yang berelasi dengan customer
-        // Ini memerlukan relasi addresses() di model Customer Anda.
         $addresses = $customer->addresses()->latest()->get();
 
         return view('customers.user-profile', [
