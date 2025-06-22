@@ -1,0 +1,9 @@
+.tabs-and-actions-container {
+    flex-wrap: wrap !important;
+    height: auto !important;
+}
+
+.tab {
+    max-width: 120px !important;
+    white-space: normal !important;
+}

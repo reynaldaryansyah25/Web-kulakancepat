@@ -1,0 +1,11 @@
+# Laravel
+/bootstrap/cache/
+/public/
+/storage/
+/vendor/
+node_modules/
+public/build/
+
+# Lainnya
+*.lock
+.env
